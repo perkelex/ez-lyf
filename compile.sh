@@ -1,0 +1,1 @@
+pyinstaller --onefile --name=ez-lyf --noconsole main.py
