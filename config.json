@@ -1,0 +1,22 @@
+{
+    "description": "Example config file",
+    "buttons": [
+        {
+            "type": "email",
+            "content": "ygrec.xulescu@email1.com"
+        },
+        {
+            "type": "email",
+            "content": "ygrec.xulescu@email2.com"
+        },
+        {
+            "type": "username",
+            "content": "ygrexule"
+        },
+        {
+            "type": "obscured",
+            "content": "dontdoxyourself",
+            "hint": "I am responsible"
+        }
+    ]
+}

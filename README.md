@@ -3,8 +3,11 @@
 Easily copy repetitve strings to clipboard.
 
 ## How to use
-1. Open config file with editor of choice.
-2. Add all strings you want to be able to quickly copy, each on its own line, no line endings.
+1. Open config.json file with editor of choice.
+2. Add a list of buttons and the desired content. Supporte types:
+    1. email: button will be split in 2 buttons - 1  for username and 1 for entire email
+    2. username: raw content as button text and content
+    3. obscured: for sensitive data; button label will be obscured, but content will be copied as is defined. Supports hint.
 3. Click button to add string to clipboard.
 
 ## How to run
