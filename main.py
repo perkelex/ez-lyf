@@ -1,29 +1,20 @@
 from PySide6.QtWidgets import QApplication
-app = QApplication([])
+app = QApplication.instance() if QApplication.instance() else QApplication([])
 # app.setQuitOnLastWindowClosed(False)
 
-from PySide6.QtGui import QAction, QGuiApplication
-from Window import window
-from Tray import tray
-from TrayMenu import tray_menu
-from WindowsInhibitor import WindowsInhibitor
+from PySide6.QtGui import QGuiApplication
+from utils.WindowsInhibitor import WindowsInhibitor
+from MainWindow import MainWindow
+from tray.Tray import tray
 
 def onExit():
     QGuiApplication.clipboard().clear()
     WindowsInhibitor.uninhibit()
 
-WindowsInhibitor.inhibit()
-
-quit_action = QAction("Quit")
-quit_action.triggered.connect(app.quit)
-tray_menu.addAction(quit_action)
-
-tray.setContextMenu(tray_menu)
-window.show()
-
 app.aboutToQuit.connect(onExit)
 
+WindowsInhibitor.inhibit()
+MainWindow().show()
+
 if __name__ == "__main__":
-
-
     app.exec()
