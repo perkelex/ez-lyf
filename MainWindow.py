@@ -44,8 +44,14 @@ class MainWindow(QMainWindow):
         exit_button.clicked.connect(QApplication.instance().exit)
         self.control_section_layout.addWidget(exit_button)
 
+        self.cb = QGuiApplication.clipboard()
+        self.cb.dataChanged.connect(self.cbOnDataChanged)
+
         self.parse_config()
         self.updateStatusBar(ClipboardMessage.EMPTY)
+
+    def cbOnDataChanged(self):
+        self.updateStatusBar(ClipboardMessage.CONTENT) if self.cb.text() else self.updateStatusBar(ClipboardMessage.EMPTY)
 
     def updateStatusBar(self, message: str):
         self.statusBar().showMessage(message)
